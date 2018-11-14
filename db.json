@@ -1,0 +1,11 @@
+{
+  "house": {
+    "address": "address"
+  },
+  "rooms": [
+    {
+      "id": 0,
+      "title": "null"
+    }
+  ]
+}
