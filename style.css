@@ -1,5 +1,92 @@
-.rooms {
+* {
+    text-decoration: none;
+    color: black;
+}
+
+.room-adding-template {
     border: 1px solid black;
     width: 250px;
     border-radius: 3px;
+}
+
+.house-creating-template {
+    border: 1px solid black;
+    width: 250px;
+    border-radius: 3px;
+}
+
+.room {
+    border: 1px solid black;
+    width: 250px;
+    border-radius: 3px;
+}
+
+.plus-room {
+    border: 1px solid black;
+    width: 250px;
+    border-radius: 3px;
+}
+
+.plus-room>form>a {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.tv-template {
+    border: 1px solid black;
+    width: 250px;
+    border-radius: 3px;
+    position: relative;
+}
+
+.tv-image, .lamp-image{
+    width: 100%;
+}
+
+.tv-show {
+    position: absolute;
+    top: 35px;
+    left: 20px;
+    width: 65%;
+}
+
+.ch-number {
+    color: greenyellow;
+    font-weight: bolder;
+    position: absolute;
+    top: 25px;
+    left: 25px;
+}
+
+.remote {
+    display: flex;
+    flex-wrap: wrap;
+    border: 2px solid gray;
+    background-color: beige; 
+}
+
+.remote-button {
+    border: 1px solid gray;
+    margin: 4px;
+    background-color: white;
+    padding: 2px;
+    width: 100%;
+}
+
+.remote-button.power {
+    background-color: brown;
+    color: aliceblue;
+}
+
+
+.lamp-template {
+    border: 1px solid black;
+    width: 250px;
+    border-radius: 3px;
+    position: relative;
+}
+
+#lamp-brightness {
+    width: 60%;
 }

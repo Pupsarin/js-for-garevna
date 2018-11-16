@@ -1,5 +1,6 @@
 {
   "house": {
+    "id": 0,
     "address": "address"
   },
   "rooms": [

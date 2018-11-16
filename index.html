@@ -1,24 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Smart Home</title>
-	<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Smart Home</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-	<template id='rooms'>
-		<div class='rooms'>
-			<h2></h2>
-			<form>
-				<input type="text" placeholder="Enter room title...">
-				<button>+</button>
-			</form>
+    <!-- <template id="rooms-list-template">
+        <div class="rooms-list">
+            <template id="room-item-template">
+                <div class="room">
+                    <h2>Kitchen</h2>
+                    <form method="POST" id="devices">
+                        <p>Add device</p>
+                        <select name="device" id="" form="devices">
+                            <option value="null">...</option>
+                            <option value="TV">TV</option>
+                            <option value="Lamp">Lamp</option>
+                        </select>
+                        <button>+</button>
+                    </form>
+					<a href="">Open Room</a>
+					<button>Delete</button>
+                </div>
+            </template>
+            <div class="plus-room">
+                <form method="post" id="add-room">
+                    <a href="">
+					<i>PLUS</i>
+					<h4>Add room</h4>
+				</a>
+                </form>
+            </div>
+        </div>
+    </template>
+    <template id="room-internals-template">
+        <div class="room-internals">
+            <template id="main-tv-template">
+                <div class="tv-template">
+                    <div class="tv">
+                        <img src="./images/tv.jpeg" alt="tv" class="tv-image">
+                        <img src="./images/bbc.png" alt="pictures" class="tv-show">
+                        <p class="ch-number">CH#</p>
+                    </div>
+                    <div class="remote">
+                        <button class="remote-button power">POWER</button>
+                        <button class="remote-button">Next Channel</button>
+                        <button class="remote-button">Prev Channel</button>
+                        <button class="remote-button">Favourites</button>
+                        <button class="remote-button">Save</button>
+                        <button class="remote-button">Remove</button>
+					</div>
+					<button>Delete</button>
+                </div>
+			</template>
+			
+            <template id="main-lamp-template">
+                <div class="lamp-template">
+                    <div class="lamp">
+                        <img src="./images/lamp.jpeg" alt="lamp" class="lamp-image">
+            		</div>
+                        <div class="remote">
+                            <button class="remote-button power">POWER</button>
+                            <label for="lamp-brightness">Brightness</label>
+                            <input type="text" name="lamp-brightness" id="lamp-brightness">
+                            <label for="lamp-color">Color</label>
+                            <input type="color" name="lamp-color" id="lamp-color">
+						</div>
+						<button>Delete</button>
+                    </div>
+			</template>
+			<button>Close</button>
 		</div>
-	</template>
-	<script src="./models.js"></script>
+    </template> -->
+
+    <script src="./models.js"></script>
 	<script src="./controllers.js"></script>
 	<script src="./view.js"></script>
 </body>
+
 </html>
