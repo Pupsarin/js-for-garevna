@@ -69,12 +69,12 @@ class AddRoom extends AddSmthing {
             let data = new FormData(this);
             let roomTitle = data.get('room-title');
             if (!!roomTitle) {
-                house.addRoom(new Room(roomTitle));
+                let newRoom = new Room(roomTitle)
+                house.addRoom(newRoom);
                 this.reset();
                 let thisElem = document.querySelector('room-list').shadow;
-                thisElem.querySelectorAll('add-room-pop').forEach(x=>x.remove());
-                thisElem.querySelector('div').appendChild(DomOperations.createElem('room-elem', thisElem));
-                // thisElem.querySelector('add-room-pop').remove();
+                thisElem.querySelector('add-room-pop').remove();
+                thisElem.querySelector('div').appendChild(roomElem(newRoom));
             }
         }
     }
@@ -128,7 +128,6 @@ class RoomList extends HTMLElement {
         this.h3 = DomOperations.createElem('h3', this.container);
         this.h3.innerText = `Rooms in the house by the address: ${house.address}`;
         this.h3.style.width = '100%';
-        // this.roomsDiv = DomOperations.createElem('div', this.container);
         this.roomElem = DomOperations.createElem('room-add-elem', this.container);
         let style = DomOperations.createElem('style', this.container);
         
@@ -141,25 +140,50 @@ class RoomList extends HTMLElement {
     }
 }
 
-class RoomElem extends HTMLElement {
-    constructor() {
-        super();
-        this.shadow = this.attachShadow({
-            mode: 'open'
-        });
-        this.container = DomOperations.createElem('div');
-        this.h4 = DomOperations.createElem('h4', this.container);
-        this.h4.innerText = house.rooms.pop().title;
-        let style = DomOperations.createElem('style', this.container);
-        style.innerText = `
-            div {
-                display: inline-block;
-                width: 100px;
-                height: 100px;
-                border: 1px solid black;
-            }`
-        this.shadow.appendChild(this.container);
+function roomElem(thisRoom) {
+    let container = DomOperations.createElem('div');
+    let h4 = DomOperations.createElem('h4', container);
+    h4.innerText = thisRoom.title;
+    h4.style = `margin: 5px auto;
+                text-align: center;`;
+    let select = DomOperations.createElem('select', container);
+    let options = ['...', 'TV', 'Lamp'];
+    for (let i in options) {
+        var option = DomOperations.createElem('option', select);
+        option.value = options[i];
+        option.innerText = options[i];
     }
+    container.style = `display: inline-block;
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;`;
+    let addButton = DomOperations.createElem('button', container);
+    addButton.innerText = '+';
+    let openButton = DomOperations.createElem('button', container);
+    openButton.innerText = 'Open Room';
+    let span = DomOperations.createElem('span', container);
+    span.style.color = 'green';
+    addButton.onclick = function() {
+        let deviceType = document.querySelector('room-list').shadow.querySelector('select').value;
+        switch (deviceType) {
+            case "TV":
+                let newTV = new TV(`tv ${thisRoom.title}`);
+                thisRoom.addDevice(newTV);
+                span.innerText = 'TV added!';
+                setTimeout(function(){ span.innerText = ''; }, 1000);
+                break;
+            case "Lamp":
+                let newLamp = new Lamp(`lamp ${thisRoom.title}`);
+                thisRoom.addDevice(newLamp);
+                setTimeout(function(){ span.innerText = ''; }, 1000);
+                span.innerText = 'Lamp added!';
+                break;
+            default:
+                break;
+        }
+    }
+    
+    return container;
 }
 
 
@@ -167,7 +191,7 @@ customElements.define('add-house-pop', AddHouse);
 customElements.define('add-room-pop', AddRoom);
 customElements.define('room-add-elem', RoomAddElem);
 customElements.define('room-list', RoomList);
-customElements.define('room-elem', RoomElem);
+// customElements.define('room-elem', RoomElem);
 
 
 DomOperations.createElem('add-house-pop');

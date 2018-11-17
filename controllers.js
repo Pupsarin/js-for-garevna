@@ -1,5 +1,5 @@
-'use strict';
+// 'use strict';
 
-function initializeHouse(address) {
-    house = new House(address);
-}
+// function initializeHouse(address) {
+//     house = new House(address);
+// }
